@@ -1,71 +1,93 @@
 {
-    "layer": "top",
-    "position": "top",
-    "spacing": 4,
-    "reload_style_on_change": true,
-    // Left Modules
-    "modules-left": [
-        "hyprland/workspaces"
-    ],
-    // Center Modules
-    "modules-center": [
-        "hyprland/window"
-    ],
-    // Right Modules
-    "modules-right": [
-        "network",
-        // "cpu",
-        // "memory",
-        "pulseaudio",
-        "battery",
-        "clock",
-        "tray"
-    ],
-    // Module configuration
-    "hyprland/workspaces": {
-        "format": "{icon}",
-        "format-icons": {
-            "active": "",
-            "default": "",
-            "empty": ""
-        },
-        "persistent-workspaces": {
-            "*": [
-                1,
-                2,
-                3
-            ]
-        }
-    },
-    "network": {
-        "format-wifi": "{essid} 󰤨 ",
-        "format-disconnected": "Disconnected"
-    },
-    "cpu": {
-        "format": "CPU: {usage}%"
-    },
-    "memory": {
-        "format": "RAM: {used} / {total}"
-    },
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": "󰝟",
-        "format-icons": {
-            "default": [
-                "󰕿",
-                "󰖀",
-                "󰕾"
-            ]
-        }
-    },
-    "battery": {
-        "format": "{icon} {capacity}%",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
-    }
+	"layer": "top",
+	"position": "bottom",
+	"spacing": 4,
+	"reload_style_on_change": true,
+	"modules-left": [
+		"hyprland/workspaces",
+		"hyprland/window"
+	],
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"format-icons": {
+			"active": "",
+			"default": "",
+			"empty": "",
+			"urgent": ""
+		},
+		"persistent-workspaces": {
+			"*": [
+				1,
+				2,
+				3,
+				4
+			]
+		}
+	},
+	"hyprland/window": {
+		"format": "{title}",
+		"max-length": 60,
+		"separate-outputs": true,
+		"rewrite": {
+			"(.*) - Mozilla Firefox": "󰈹 $1",
+			"(.*) - Visual Studio Code": "󰨞 $1",
+			"(.*) - Discord": " $1",
+			"^$": "Desktop Environment"
+		}
+	},
+	"modules-right": [
+		"tray",
+		"pulseaudio",
+		"cpu",
+		"memory",
+		"network",
+		"clock"
+	],
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-muted": "󰝟",
+		"format-icons": {
+			"default": [
+				"󰕿",
+				"󰖀",
+				"󰕾"
+			]
+		}
+	},
+	"cpu": {
+		"interval": 2
+	},
+	"memory": {
+		"interval": 2
+	},
+	"network": {
+		"interval": 2,
+		"format-ethernet": "󰈀  {bandwidthDownBytes} / {bandwidthUpBytes}",
+		"format-disconnected": "󰜺",
+		"tooltip-format": "{ipaddr} / {cidr}"
+	},
+	"clock": {
+		"interval": 1,
+		"format": "  {:%I:%M %p}",
+		"format-alt": "  {:%A, %B %d, %Y}",
+		"tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"calendar": {
+			"mode": "month",
+			"mode-mon-col": 3,
+			"weeks-pos": "right",
+			"on-scroll": 1,
+			"format": {
+				"months": "<span color='#cdd6f4'><b>{}</b></span>",
+				"days": "<span color='#b4befe'><b>{}</b></span>",
+				"weeks": "<span color='#a6e3a1'><b>W{}</b></span>",
+				"weekdays": "<span color='#fab387'><b>{}</b></span>",
+				"today": "<span color='#f38ba8'><b><u>{}</u></b></span>"
+			}
+		},
+		"actions": {
+			"on-click-right": "mode",
+			"on-scroll-up": "shift_up",
+			"on-scroll-down": "shift_down"
+		}
+	}
 }
