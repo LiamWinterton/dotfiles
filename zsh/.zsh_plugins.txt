@@ -1,4 +1,10 @@
+mattmc3/ez-compinit
+
 MichaelAquilina/zsh-you-should-use
 
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions
+
+zsh-users/zsh-completions
+
+Aloxaf/fzf-tab
